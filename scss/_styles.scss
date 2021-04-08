@@ -255,7 +255,6 @@ main {
   }
 }
 .features-wrapper {
-  margin-bottom: 62px;
   h2 {
     color: $Niagara;
     font-weight: 800;
@@ -289,6 +288,9 @@ main {
     }
   }
 }
+.branding {
+  margin-top: 62px;
+}
 .list {
   position: relative;
   margin-right: 27px;
@@ -313,10 +315,8 @@ main {
   position: absolute;
   top: 0;
   left: -45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.5s;
+  @include flexbox(flex, row, center, center);
 
   &.feather {
     &:after {
@@ -370,6 +370,112 @@ main {
         filter: invert(100%) sepia(3%) saturate(12%) hue-rotate(54deg)
           brightness(103%) contrast(101%);
       }
+    }
+  }
+}
+.works {
+  padding-top: 40px;
+  @include media-breakpoint-up(lg) {
+    padding-top: 92px;
+  }
+  .heart {
+    margin-bottom: 28px;
+  }
+  strong {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    color: rgba(6, 32, 51, 0.8);
+    @include media-breakpoint-up(lg) {
+      padding: 0 10px;
+    }
+  }
+  .works-btn {
+    margin-top: 48px;
+    margin-bottom: 36px;
+    @include media-breakpoint-up(lg) {
+      padding-right: 0;
+      padding-left: 32px;
+    }
+  }
+  .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0.3125rem;
+    border-bottom-right-radius: 0.3125rem;
+  }
+  .btn-group > .btn:nth-child(n + 3),
+  .btn-group > :not(.btn-check) + .btn {
+    border-top-left-radius: 0.3125rem;
+    border-bottom-left-radius: 0.3125rem;
+  }
+  .btn {
+    margin-bottom: 15px;
+    font-weight: 700;
+    border: 1px solid transparent;
+    color: #062033;
+    padding: 4px 0px;
+    @include media-breakpoint-up(lg) {
+      margin-right: 12px;
+      margin-bottom: 0;
+    }
+    &.active {
+      color: white;
+    }
+    &:hover {
+      color: white;
+    }
+    &:focus {
+      background: #0eb493;
+      color: white;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+.img-hover {
+  position: relative;
+  .cover {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 180, 147, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    span {
+      width: 41px;
+      height: 41px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      @include flexbox(flex, row, center, center);
+      margin-bottom: 20px;
+      &:after {
+        background: url(../images/sprite/sprite.svg#eye-icon);
+        width: 20px;
+        height: 20px;
+        content: "";
+        filter: invert(99%) sepia(1%) saturate(14%) hue-rotate(54deg)
+          brightness(116%) contrast(100%);
+      }
+    }
+    h4 {
+      color: #fff;
+      font-weight: 700;
+    }
+    strong {
+      color: #fff;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+  }
+  &:hover {
+    .cover {
+      @include flexbox(flex, column, center, center);
+    }
+  }
+  &.active {
+    .cover {
+      @include flexbox(flex, column, center, center);
     }
   }
 }

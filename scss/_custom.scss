@@ -12,7 +12,9 @@ $navbar-brand-margin-end: 0;
 $h1-font-size: 3.875rem;
 $h2-font-size: 1.75rem;
 $h3-font-size: 1.25rem;
+$h4-font-size: 1.125rem;
 $Niagara: #0eb493;
+$success: $Niagara;
 
 $container-max-widths: (
   sm: 540px,
@@ -21,3 +23,14 @@ $container-max-widths: (
   xl: 1170px,
   xxl: 1320px,
 ) !default;
+
+$btn-border-radius: 0.3125rem;
+$btn-font-size: 14px;
+$input-btn-padding-x: 0;
+
+@mixin flexbox($df, $fd, $jc, $ai) {
+  display: $df;
+  flex-direction: $fd;
+  justify-content: $jc;
+  align-items: $ai;
+}
