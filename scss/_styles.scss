@@ -8,7 +8,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 11;
   width: 100%;
   @include media-breakpoint-up(lg) {
     height: 70px;
@@ -52,6 +52,10 @@ header {
   height: calc(100vh - 69.19px);
   justify-content: center;
   align-items: center;
+  background: #0e2d2b;
+  @include media-breakpoint-up(lg) {
+    background: transparent;
+  }
 }
 .nav-link {
   font-size: 5vh;
@@ -529,8 +533,11 @@ main {
     background: rgba(14, 180, 147, 0.95);
     width: 100%;
     height: 100%;
-    padding: 40px;
+    padding: 20px;
     display: none;
+    @include media-breakpoint-up(md) {
+      padding: 40px;
+    }
     @include media-breakpoint-up(lg) {
       padding: 20px;
     }
@@ -538,14 +545,28 @@ main {
       font-weight: 700;
       color: white;
       line-height: 24px;
+      @include media-breakpoint-up(lg) {
+        line-height: 19px;
+      }
+      @include media-breakpoint-up(xl) {
+        line-height: 24px;
+      }
     }
     p {
       font-size: 1rem;
       color: white;
       font-weight: 300;
       line-height: 24px;
-      margin-bottom: 30vw;
+      margin-bottom: 16vw;
       @include media-breakpoint-up(md) {
+        margin-bottom: 64px;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 0.8rem;
+        margin-bottom: 6px;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 1rem;
         margin-bottom: 64px;
       }
     }
@@ -803,14 +824,14 @@ main {
   padding-top: 16px;
   padding-bottom: 16px;
   margin-top: 24px;
-  color: rgba(91, 100, 110, 0.5);
+  color: $formColor;
   &:focus {
-    color: rgba(91, 100, 110, 0.5);
+    color: $formColor;
     box-shadow: none;
     border-color: inherit;
   }
   &::placeholder {
-    color: rgba(91, 100, 110, 0.5);
+    color: $formColor;
     font: 400 13px "Open Sans", sans-serif;
   }
   border-top: transparent;
@@ -914,8 +935,13 @@ main {
 
 footer {
   background: $Niagara;
-  padding-top: 100px;
   border-top: 5px solid $blackPearl;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @include media-breakpoint-up(lg) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
 
 .main-footer {
@@ -926,6 +952,10 @@ footer {
   p {
     color: $white;
     line-height: 24px;
+    margin-bottom: 3rem;
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 1rem;
+    }
   }
   span {
     font-size: 14px;
@@ -991,21 +1021,35 @@ footer {
     filter: invert(34%) sepia(75%) saturate(424%) hue-rotate(118deg)
       brightness(92%) contrast(94%);
   }
-  &:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 0.75rem;
-    background: $blackPearl;
-    width: 1px;
-    height: 39px;
-    opacity: 0.3;
-  }
   strong {
     color: $blackPearl;
     font-weight: normal;
   }
   p {
-    margin-bottom: 51px;
+    margin-bottom: 25px;
+  }
+  @include media-breakpoint-up(lg) {
+    p {
+      margin-bottom: 51px;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 0.75rem;
+      background: $blackPearl;
+      width: 1px;
+      height: 39px;
+      opacity: 0.3;
+    }
+  }
+}
+
+.footer-fix {
+  margin-left: auto;
+  margin-right: auto;
+  @include media-breakpoint-up(md) {
+    margin-right: calc(var(--bs-gutter-x) / -2);
+    margin-left: calc(var(--bs-gutter-x) / -2);
   }
 }
