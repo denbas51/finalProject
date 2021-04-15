@@ -31,14 +31,11 @@ header {
   padding-top: 1.7rem;
   position: relative;
   &::before {
-    content: "";
+    @include beforeAfter("", 1px, 17px, #17526e);
     display: block;
-    width: 1px;
-    height: 17px;
     position: absolute;
     top: 1.7rem;
     left: -20px;
-    background: #17526e;
     @include media-breakpoint-up(lg) {
       top: 2.1rem;
     }
@@ -79,6 +76,7 @@ header {
 .carousel {
   img {
     height: 80vw;
+    object-fit: cover;
     @include media-breakpoint-up(md) {
       height: 70vw;
     }
@@ -146,11 +144,8 @@ header {
       font-size: 18px;
     }
     &::before {
-      content: "";
+      @include beforeAfter("", 20px, 1px, #0feb9e);
       display: block;
-      width: 20px;
-      height: 1px;
-      background: #0feb9e;
       position: absolute;
       top: calc(50% - 0.5px);
       left: -40px;
@@ -160,11 +155,8 @@ header {
       }
     }
     &::after {
-      content: "";
+      @include beforeAfter("", 20px, 1px, #0feb9e);
       display: block;
-      width: 20px;
-      height: 1px;
-      background: #0feb9e;
       position: absolute;
       top: calc(50% - 0.5px);
       right: -40px;
@@ -907,12 +899,14 @@ main {
       box-shadow: none;
     }
     &:before {
-      content: "";
-      background: url(../images/sprite/sprite.svg#mail);
+      @include beforeAfter(
+        "",
+        23px,
+        23px,
+        url(../images/sprite/sprite.svg#mail)
+      );
       display: block;
       position: absolute;
-      width: 23px;
-      height: 23px;
       bottom: calc(50% - 12px);
       left: -35px;
     }
@@ -945,8 +939,6 @@ footer {
 }
 
 .main-footer {
-  padding-left: 7px;
-  padding-right: 7px;
   .footer-brand {
     padding-bottom: 28px;
     padding-top: 0;
@@ -1035,23 +1027,11 @@ footer {
       margin-bottom: 51px;
     }
     &:before {
-      content: "";
       position: absolute;
       top: 5px;
       left: 0.75rem;
-      background: $blackPearl;
-      width: 1px;
-      height: 39px;
       opacity: 0.3;
+      @include beforeAfter("", 1px, 39px, $blackPearl);
     }
-  }
-}
-
-.footer-fix {
-  margin-left: auto;
-  margin-right: auto;
-  @include media-breakpoint-up(md) {
-    margin-right: calc(var(--bs-gutter-x) / -2);
-    margin-left: calc(var(--bs-gutter-x) / -2);
   }
 }
